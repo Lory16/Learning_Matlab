@@ -1,0 +1,147 @@
+>> B = diag(2)
+
+B =
+
+     2
+
+>> diagonale = [2 2 2 2]
+
+diagonale =
+
+     2     2     2     2
+
+>> B = diag(diagonale)
+
+B =
+
+     2     0     0     0
+     0     2     0     0
+     0     0     2     0
+     0     0     0     2
+
+>> sottodiagonale = [-3 -3 -3]
+
+sottodiagonale =
+
+    -3    -3    -3
+
+>> B = B + diag(sottodiagonale, -1]
+ B = B + diag(sottodiagonale, -1]
+                                ↑
+Error: Invalid expression. When calling a function or indexing a variable,
+use parentheses. Otherwise, check for mismatched delimiters.
+ 
+Did you mean:
+>> B = B + diag(sottodiagonale, -1)
+
+B =
+
+     2     0     0     0
+    -3     2     0     0
+     0    -3     2     0
+     0     0    -3     2
+
+>> for el in B
+ for el in B
+        ↑
+Error: Invalid expression. Check for missing multiplication operator,
+missing or unbalanced delimiters, or other syntax error. To construct
+matrices, use brackets instead of parentheses.
+ 
+>> triu(rand(0, 1), 1)
+
+ans =
+
+  0×1 empty double column vector
+
+>> random = rand(4, 4)
+
+random =
+
+    0.8147    0.6324    0.9575    0.9572
+    0.9058    0.0975    0.9649    0.4854
+    0.1270    0.2785    0.1576    0.8003
+    0.9134    0.5469    0.9706    0.1419
+
+>> triu(random)
+
+ans =
+
+    0.8147    0.6324    0.9575    0.9572
+         0    0.0975    0.9649    0.4854
+         0         0    0.1576    0.8003
+         0         0         0    0.1419
+
+>> triu(random, 1)
+
+ans =
+
+         0    0.6324    0.9575    0.9572
+         0         0    0.9649    0.4854
+         0         0         0    0.8003
+         0         0         0         0
+
+>> B = B + triu(random, 1)
+
+B =
+
+    2.0000    0.6324    0.9575    0.9572
+   -3.0000    2.0000    0.9649    0.4854
+         0   -3.0000    2.0000    0.8003
+         0         0   -3.0000    2.0000
+
+>> triu(random, -2)
+
+ans =
+
+    0.8147    0.6324    0.9575    0.9572
+    0.9058    0.0975    0.9649    0.4854
+    0.1270    0.2785    0.1576    0.8003
+         0    0.5469    0.9706    0.1419
+
+>> tril(random, 2)
+
+ans =
+
+    0.8147    0.6324    0.9575         0
+    0.9058    0.0975    0.9649    0.4854
+    0.1270    0.2785    0.1576    0.8003
+    0.9134    0.5469    0.9706    0.1419
+
+>> tril(random, 0)
+
+ans =
+
+    0.8147         0         0         0
+    0.9058    0.0975         0         0
+    0.1270    0.2785    0.1576         0
+    0.9134    0.5469    0.9706    0.1419
+
+>> tril(random, -1)
+
+ans =
+
+         0         0         0         0
+    0.9058         0         0         0
+    0.1270    0.2785         0         0
+    0.9134    0.5469    0.9706         0
+
+>> B
+
+B =
+
+    2.0000    0.6324    0.9575    0.9572
+   -3.0000    2.0000    0.9649    0.4854
+         0   -3.0000    2.0000    0.8003
+         0         0   -3.0000    2.0000
+
+>> B = B + tril(random, -2)
+
+B =
+
+    2.0000    0.6324    0.9575    0.9572
+   -3.0000    2.0000    0.9649    0.4854
+    0.1270   -3.0000    2.0000    0.8003
+    0.9134    0.5469   -3.0000    2.0000
+
+>> 
